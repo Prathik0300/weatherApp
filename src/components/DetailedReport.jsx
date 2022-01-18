@@ -1,7 +1,7 @@
 import React,{ useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { WiCloudy,WiDaySunny,WiDayThunderstorm,WiDayRain,WiDaySnow,WiRaindrop,WiBarometer,WiHumidity,WiDirectionDown,WiDirectionLeft,WiDirectionUp,WiDirectionRight } from "react-icons/wi";
+import { WiCloudy,WiDaySunny,WiDayThunderstorm,WiDayRain,WiDaySnow,WiRaindrop,WiBarometer,WiHumidity,WiDirectionDown,WiDirectionLeft,WiDirectionUp,WiDirectionRight,WiDirectionDownLeft,WiDirectionDownRight,WiDirectionUpLeft,WiDirectionUpRight } from "react-icons/wi";
 import '../css/detailedReport.scss';
 import HourlyForecast from './HourlyForecast';
 import DailyForecast from './DailyForecast';
@@ -44,7 +44,7 @@ export default function DetailedReport() {
         return "Loading..."
     }
 
-    const windDirection = weatherData.data.current.wind_deg>=0 && weatherData.data.current.wind_deg<=90?<WiDirectionUp/>:weatherData.data.current.wind_deg>90 && weatherData.data.current.wind_deg<=180?<WiDirectionRight/>:weatherData.data.current.wind_deg>180 && weatherData.data.current.wind_deg<=270?<WiDirectionDown/>:<WiDirectionLeft/>
+    const windDirection = weatherData.data.current.wind_deg===0?<WiDirectionUp/>:weatherData.data.current.wind_deg>0 && weatherData.data.current.wind_deg<90?<WiDirectionUpRight/>:weatherData.data.current.wind_deg===90?<WiDirectionRight/>:weatherData.data.current.wind_deg>90 && weatherData.data.current.wind_deg<180?<WiDirectionDownRight/>:weatherData.data.current.wind_deg===180?<WiDirectionDown/>:weatherData.data.current.wind_deg>180 && weatherData.data.current.wind_deg<270?<WiDirectionDownLeft/>:weatherData.data.current.wind_deg===270?<WiDirectionLeft/>:<WiDirectionUpLeft/>
 
     console.log("loc : \n",weatherData,weatherData.data.current.temp);
 
