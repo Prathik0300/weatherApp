@@ -1,0 +1,67 @@
+@import 'app';
+@import 'navbar';
+
+.rowViewContainer{
+    @include resolution(100%,100%);
+    @include padding(0,0,2rem,2rem);
+    @include flex;
+    flex-direction:row;   
+    font-size: 1.2rem;
+    font-weight: bolder;
+    transition: ease-in-out 0.3s;
+    border-radius: 1rem;
+    cursor: pointer;
+    position: relative;
+
+    .rowViewDiv{
+        @include resolution(60%,100%);
+        @include flex;
+        flex-wrap: wrap;
+        flex-direction:row;
+        justify-content: flex-start;  
+        position: absolute;
+        left: 0;
+    }
+
+    .temperatureDiv{
+        position: absolute;
+        right: 5px;
+        padding-right: 2rem !important;
+    }
+
+    &:hover{
+        cursor: pointer;
+        background-color: rgba(0,0,0,0.6);
+        color: #fff;
+        
+        .rowViewDiv,.temperatureDiv{
+            border-radius: 1.5rem;
+        }
+    }
+}
+
+.weatherIcon{
+    @include margin(0.4rem,0,0,0);
+    font-size: 2rem;
+    font-weight: bold;
+}
+.cardWrapper{
+    @include flex;
+    @include resolution(150px,150px);
+    @include padding(1rem,0,1rem,1rem);
+    @include margin(1.2rem,0,0,1rem);
+    flex-wrap:wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 1rem;
+    border: 2px solid black;
+
+    .cardDiv{
+        @include margin(0,1rem,1rem,0);
+    }
+
+    .cardTitle{
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+}

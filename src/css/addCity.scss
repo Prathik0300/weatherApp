@@ -1,0 +1,61 @@
+@import 'app';
+@import 'navbar';
+
+.addIconDiv{
+    right: 0;
+}
+
+.addIcon{
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bolder;
+}
+
+.addCityDiv{
+    @include flex;
+    @include resolution(100%,100%);
+    flex-direction: column;
+    color: #fff;
+    .headingAddCity{
+        @include flex;
+        @include resolution(100%,100%);
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .backArrow{
+        @include margin(2rem,0,0,0.2rem);
+        font-size: 2rem;
+        color: #fff !important;
+    }
+
+    .heading{
+        @include margin(0,0,0.2rem,0);
+        font-size: 1.6rem;
+    }
+}
+
+.resultCityDiv{
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+
+    &:hover{
+        background-color: white;
+        color: black;
+        font-weight: bolder;
+    }
+}
+
+
+.searchBar{
+    @include flex;
+    position: relative;
+    left: 0;
+    right: 0;
+    input{
+        @include resolution(90%,2rem);
+        border-radius: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

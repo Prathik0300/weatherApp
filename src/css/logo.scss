@@ -1,0 +1,66 @@
+@import 'app';
+@import 'navbar';
+
+.logoDiv{
+    @include flex;
+    @include margin(0,0,0.4rem,0);
+    background-color: transparent;
+    position: fixed;
+    cursor: pointer;
+    flex-direction: row;
+    left: 50%;
+    right: 50%;
+    color: #fff;
+    z-index: 0;
+
+    .logoIcon{
+        font-size: 3rem;
+        transition: ease-in-out 0.5s;
+    }
+
+    .alignLogoIcon{
+        @include margin(0,5rem,0,0);
+    }
+
+    .logoName{
+        @include margin(0,5px,0,10px);
+        font-size: 1.5rem;
+        animation: LogoSlideOut 0.5s ease-in-out forwards;
+    }
+
+    .hideLogoName{
+        font-size: 1.5rem;
+        animation: LogoSlideIn 0.5s ease-in-out forwards;
+    }
+}
+
+@keyframes LogoSlideIn {
+    0%{
+        opacity: 1;
+        margin-left: 5px;
+    }
+    50%{
+        opacity: 0.5;
+        margin-left: 0px;
+    }
+    100%{
+        opacity: 0;
+        margin-left: -20px;
+    }
+}
+
+@keyframes LogoSlideOut{
+    0%{
+        opacity: 0;
+        margin-left: -20px;
+    }
+    50%{
+        opacity: 0.5;
+        margin-left: 0px;
+    }
+    100%{
+        opacity: 1;
+        margin-left: 5px;
+    }
+}
+

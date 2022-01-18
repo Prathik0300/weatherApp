@@ -1,0 +1,42 @@
+@import 'app';
+@import 'navbar';
+
+.cardWrapper1{
+    @include flex;
+    @include resolution(170px,170px);
+    @include padding(1rem,0,1rem,1rem);
+    @include margin(1.2rem,0,0,1rem);
+    flex-wrap:wrap;
+    flex-direction: column;
+    border-radius: 1rem;
+    color: #fff !important;
+    border: 2px solid white !important;
+    position: relative;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    .cardDiv1{
+        @include margin(2rem,2rem,-1rem,0);
+        @include resolution(170px,170px);
+        @include flex;
+        flex-direction: column;
+        position: absolute;
+        
+        .cardIcon1{
+            font-size: 4rem;
+        }
+        .cardTemp1{
+            @include flex;
+            @include resolution(100%,100%);
+
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            font-size: 1.2rem;
+                        
+            .cardTempExpand{
+                @include resolution(100%,100%);
+                @include flex;
+                flex-direction: column;
+            }
+        }
+    }
+}

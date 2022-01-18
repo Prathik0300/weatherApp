@@ -1,0 +1,51 @@
+@mixin resolution($width,$height){
+    width: $width;
+    height: $height;
+}
+@mixin flex($justify:center) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+}
+
+@mixin nightHawk{
+    background-image: linear-gradient(#2980b9,#2c3e50);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+@mixin midnightCity{
+    background-image: linear-gradient(#232526,#414345);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%; 
+}
+
+@mixin clearSky($a:0.8){
+    background-image: linear-gradient(rgba(0, 92, 151,$a),rgba(54, 55, 149,$a));
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+@font-face {
+    font-family: mulish;
+    src: url("../assets/fonts/Mulish-Regular.ttf");
+}
+
+html,body{
+    @include clearSky();
+    overflow-x: hidden;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: mulish;
+}
+
+*:focus{
+    outline: 0 !important;
+}

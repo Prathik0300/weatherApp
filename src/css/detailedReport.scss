@@ -1,0 +1,184 @@
+@import "navbar";
+@import "app";
+
+.sunny{
+    @include resolution(100%,100%);
+    background-image: url("../assets/weatherAppImg/sunny.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .weatherIcon{
+        font-size: 6rem;
+        color: goldenrod;
+    }
+}
+
+.rainy{
+    @include resolution(100%,100%);
+    background-image: url("../assets/weatherAppImg/rainy.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .weatherIcon{
+        font-size: 6rem;
+        color: grey;
+    }
+}
+
+.cloudy{
+    @include resolution(100%,100%);
+    background-image: url("../assets/weatherAppImg/cloudy.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    .weatherIcon{
+        font-size: 8rem;
+        color: darkgray;
+    }
+}
+
+.snowy{
+    @include resolution(100%,100%);
+    background-image: url("../assets/weatherAppImg/snowy.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .weatherIcon{
+        font-size: 6rem;
+        color: white;
+    }
+}
+
+
+.dataWrapper{
+    @include flex;
+    @include resolution(100%,100%);
+    flex-direction: column !important;
+    position: relative;
+}
+
+.currentData{
+    @include resolution(100%,100%);
+    @include flex;
+    flex-direction: column;
+    color: white;
+    
+    .currentTemp{
+        font-size: 3.7rem;
+    }
+
+    .currentWeather{
+        @include flex;
+        @include margin(0,1rem,0,0);
+        flex-direction: column;
+        flex-wrap: wrap;
+        float: left !important;
+        top: 1rem;
+        left: 1rem;
+    }
+
+    .currentCondition{
+        font-size: 2rem;
+        // position: absolute;
+        // left: 1rem;
+        // top: 7rem;
+    }
+
+    .currentLoc{
+        font-size: 1.2rem;
+        // position: absolute;
+        // left: 1rem;
+        // top: 10rem;
+    }
+
+    .currentWeatherWrapper{
+        @include resolution(100%,100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.6);
+    }
+}
+
+.currentExtraData{
+    @include flex();
+    @include margin(1.5rem,0,2rem,0);
+    @include padding(1rem,0,0,0);
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    float: right;
+    color: white;
+    z-index: 30;
+    font-size: 1.5rem;
+
+    div{
+        // @include margin(3rem,3rem,0,0);
+        // margin-left: 0.3rem;
+        font-size: 2rem;
+        span{
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.hourlyHeading{
+    @include margin(0,0,28rem,0);
+}
+
+.dailyHeading{
+    @include margin(0,0,8%,0);
+}
+
+.forecastReport{
+    @include flex;
+    @include resolution(90%,100%);
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    z-index: 40 !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden;
+    color: white !important;
+    scrollbar-width: none;
+}
+
+.individualDiv{
+    @include flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    .individualTime{
+        @include margin(0,0,-2rem,0);
+    }
+
+    .individualCard{
+        @include margin(0,1rem,0,0);
+    }
+}
+
+@media(min-width:491px){
+    .currentData{
+        flex-direction: row;
+    }
+
+    .currentExtraData{
+        flex-direction: column;
+        justify-content: flex-start;
+
+        div{
+            @include resolution(100%,100%);
+        }
+    }
+}
+
+@media(max-width:294px){
+    .hourlyHeading{
+        @include margin(0,0,35rem,0);
+    }
+
+    .dailyHeading{
+        @include margin(0,0,15%,0);
+    }
+}

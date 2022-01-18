@@ -1,0 +1,196 @@
+@import "app";
+
+
+
+@mixin margin($right,$left,$top,$bottom){
+    margin-left: $left;
+    margin-top: $top;
+    margin-bottom: $bottom;
+    margin-right: $right;
+}
+
+@mixin padding($right:0,$left:0,$top:0,$bottom:0){
+    padding-left: $left;
+    padding-top: $top;
+    padding-bottom: $bottom;
+    padding-right: $right;
+}
+
+@mixin hamburgerPseudo($width,$height,$top){
+    @include resolution($width,$height);
+    content: '';
+    position: absolute;
+    top:$top;
+    transition: ease-in-out 0.4s;
+    background-color: #fff !important;
+}
+
+@mixin transformHamburger($degree){
+    transform: rotate($degree);
+    top: 0;
+}
+
+@mixin navbarResolution{
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+
+@mixin visibleFunctionalDiv($visible){
+    @if $visible=="yes" {
+        @include flex;
+        @include resolution(40px,40px);
+        @include margin(1rem,1.5rem,1.5rem,0);
+        background-color: transparent;
+        position: fixed;
+        z-index: 20;
+        cursor: pointer;
+    }
+    @else{
+        z-index: -12;
+        display: none
+    }
+}
+
+.functionalDiv{
+    @include flex;
+        @include resolution(40px,40px);
+        @include margin(1rem,1.5rem,1.5rem,0);
+        background-color: transparent;
+        position: fixed;
+        z-index: 20;
+        cursor: pointer;
+    // @include visibleFunctionalDiv("yes");
+}
+.hamburgerWrapper{
+    @include flex;
+    @include resolution(30px,30px);
+    transition: ease-in-out 0.4s;
+    position:fixed;
+    cursor: pointer;
+}
+
+.hamburger{
+    @include resolution(30px,4px);
+    position: absolute;
+    cursor: pointer;
+    transition: ease-in-out 0.4s;
+    background-color: #fff;
+}
+
+.hamburger::before{
+    @include hamburgerPseudo(30px,4px,-0.5rem);
+}
+
+.hamburger::after{
+    @include hamburgerPseudo(30px,4px,0.5rem);
+}
+
+.toggleActive{
+    .hamburger{
+        background-color: transparent;
+    }
+
+    .hamburger::before{
+        @include transformHamburger(-45deg);
+    }
+
+    .hamburger::after{
+        @include transformHamburger(45deg);
+    }
+
+    .navbarPane {
+        animation: SlideIn 0.5s ease-in-out 0ms forwards;
+      }
+}
+
+.navItems{
+    @include flex;
+    flex-direction: column;
+    @include margin(0,0,2rem,0 );
+    background-color: transparent;
+    a{
+        text-decoration: none;
+    }
+    div{
+        @include flex;
+        @include margin(0,0,2rem,0 );
+        @include resolution(100vw,0);
+        @include padding($top:1.2rem,$bottom:1.2rem);
+        cursor: pointer;
+        color: #fff;
+        transition: ease-in-out 0.3s;
+        font-size: 1.1rem;
+    }
+
+    div:hover{
+        color: black;
+        background-color: white;
+        font-weight: bold;
+    }
+}
+
+.navbarWrapper{
+    @include navbarResolution;
+    height: 100%;   
+    z-index: 15;
+}
+
+.navbarDiv{
+    @include resolution(100vw,100px);
+    background-color: rgba(0,0,0,0.9);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    transition: ease-in-out 0.5s;
+}
+
+.navbarPane{
+    @include flex;
+    @include navbarResolution;
+    @include resolution(200px,100vh);
+    @include midnightCity();
+    @include margin(0,-500px,0,0);
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    
+}
+
+.navSlide{
+    .navbarPane {
+        animation: SlideOut 0.5s ease-in-out 0ms forwards;
+      }    
+}
+
+.allCitiesDiv{
+    position: relative;
+    top: 10rem;
+}
+
+.flexCityDetails{
+    @include flex;
+    @include resolution(100%,100%);
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+@keyframes SlideIn {
+    0% {
+      margin-left: -500px;
+    }
+    100% {
+      margin-left: 0px;
+    }
+}
+  
+@keyframes SlideOut {
+    0% {
+      margin-left: 0px;
+    }
+    100% {
+      margin-left: -500px;
+    }
+}
+  
