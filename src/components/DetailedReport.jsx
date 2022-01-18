@@ -67,7 +67,7 @@ export default function DetailedReport() {
                         <HourlyForecast temperature={item.temp} weather={item.weather[0].main}/>
                     </div>
                     <div className='individualTime'>
-                        {(idx)%24} <span>{(idx)%24>=12? "PM" : "AM"}</span>
+                        {(idx)%24}:00 <span>{(idx)%24>=12? "PM" : "AM"}</span>
                     </div>
                 </div>:null
                 }
