@@ -18,7 +18,7 @@ export default function Navbar() {
     window.onscroll = () => {scrollEvent();}
 
     const scrollEvent = () => {
-        if(document.body.scrollTop>=50 || document.documentElement.scrollTop>=50){
+        if(document.body.scrollTop>=50 || document.documentElement.scrollTop>='50px'){
             setScrollStyle(true);
         }
         else{
