@@ -154,6 +154,18 @@
     flex-direction: column;
     justify-content: flex-start;
     overflow: hidden;
+
+    .copyrights{
+        position: absolute;
+        bottom: 0;
+        color: #fff;
+        cursor: pointer;
+        transition: ease-in-out 0.3s;
+
+        &:hover{
+            color:#2980b9 ;
+        }
+    }
     
 }
 

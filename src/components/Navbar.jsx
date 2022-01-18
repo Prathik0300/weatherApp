@@ -82,6 +82,9 @@ export default function Navbar() {
             <div style={{marginTop:'3rem'}}>
                 {navItems}
             </div>
+            <div className='copyrights'>
+                <span onClick={() => window.open("https://prathikpugazhenthi.com/","__blank")}>&#169; Prathik Pugazhenthi</span>
+            </div>
         </div>
     </div>
 
