@@ -26,14 +26,11 @@ export default function DetailedReport() {
 
     const [loc,setLoc] = useState(useSelector((state) => state.city.filter((item) => (item.lat == lat && item.lng==lng)?item:null)));
 
-    console.log("location \n",loc);
-
     useEffect(async () => { 
         const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&units=metric&appid=c6b019a52568767562b5532a7f55755e`,{
             method:'GET',
         })
         data = await res.json();
-        // console.log(data);
         setWeatherData(prevState => ({
             data:data
         }));
@@ -62,9 +59,6 @@ export default function DetailedReport() {
 
     const hourly = weatherData.data.hourly.map((item,idx) =>{
         const hour = new Date(Date.now()).getHours();
-        if(idx>=hour){
-            console.log(idx,hour)
-        }
         return(
             <>
                 {
@@ -139,7 +133,6 @@ export default function DetailedReport() {
     </div>
     </div>
 
-    console.log(lat,lng);
     return (
         <div>
             {wReport}

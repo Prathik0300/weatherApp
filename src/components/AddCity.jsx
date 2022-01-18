@@ -39,7 +39,6 @@ export default function AddCity() {
     useEffect(() => {
         
         if(selectedCity!=="" && selectedCountry!==""  && lat!==null  && lng!==null && temperature!==null && weather!==""){
-            console.log("weather \n",temperature,lat,lng);
             dispatch(storeCityDetails({
                 city:selectedCity,
                 country:selectedCountry,
@@ -72,10 +71,7 @@ export default function AddCity() {
                 method:'GET',
             })
         const data = await res.json();
-        console.log(data);
-        console.log(data.current.temp)
         setTemperature(data.current.temp);
-        console.log(data.current.weather[0].main)
         setWeather(data.current.weather[0].main);
         }
         
@@ -125,8 +121,7 @@ export default function AddCity() {
                 </div>
                 {inputCity}
                 {cityResults}
-            </div>
-        
+            </div> 
         </div>
     )
 }
