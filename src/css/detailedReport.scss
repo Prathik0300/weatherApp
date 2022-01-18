@@ -136,6 +136,12 @@
     scrollbar-width: none;
 }
 
+.forecastReport::-webkit-scrollbar {
+    
+    width: 0;
+    height: 0;
+}
+
 .individualDiv{
     @include flex;
     flex-direction: column;
