@@ -10,8 +10,7 @@ export default function AddCityIcon() {
             <PlusOutlined className='addIcon'/>
         </NavLink>
     </div>
-
-    // console.log(cities);
+    
     return (
         <>
             {addIcon} 

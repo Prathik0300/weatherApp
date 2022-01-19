@@ -1,8 +1,8 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/cityWeather.scss';
-import { WiCloudy,WiDaySunny,WiDayThunderstorm,WiDayRain,WiDaySnow } from "react-icons/wi";
 import { useNavigate } from 'react-router-dom';
+import { wIcon } from '../shared/weather';
 
 export default function CityWeather({city,country,degree,temp,view,weather,lat,lng}) {
 
@@ -16,7 +16,7 @@ export default function CityWeather({city,country,degree,temp,view,weather,lat,l
         Navigate(`/weatherApp/${lat}/${lng}`);
     }
 
-    const weatherIcon = weather==="Clear" || weather.includes("Sun")?<WiDaySunny/>:weather==="Drizzle" || weather.includes("Rain")?<WiDayRain/>:weather.includes("Cloud")|| weather.includes("Mist") || weather.includes("Haze")?<WiCloudy/>:weather.includes("Thunder")?<WiDayThunderstorm/>:<WiDaySnow/>;
+    const weatherIcon = wIcon(weather);
 
     if(view==='Grid'){
         render = 

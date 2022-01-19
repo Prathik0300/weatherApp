@@ -4,7 +4,7 @@ import '../css/navbar.scss';
 import AddCityIcon from './AddCityIcon';
 import Logo from './Logo';
 import CityWeather from './CityWeather';
-import { useSelector } from 'react-redux';
+import { AllCitySelector } from '../shared/selector';
 
 export default function Navbar() {
     const Navigate = useNavigate();
@@ -12,30 +12,8 @@ export default function Navbar() {
     const [view,setView] = useState('Grid');
     const [hamburgerStatus,setHamburgerStatus] = useState(false);
     const [navStyle,setNavStyle] = useState('');
-    const [cities,setCities] = useState(useSelector((state) => state.city));
-    const [scrollStyle,setScrollStyle] = useState(false);
+    const cities = AllCitySelector();
     const [bgStyle,setBgStyle] = useState("");
-    window.onscroll = () => {scrollEvent();}
-
-    const scrollEvent = () => {
-        if(document.body.scrollTop>=50 || document.documentElement.scrollTop>='50px'){
-            setScrollStyle(true);
-        }
-        else{
-            setScrollStyle(false);
-        }
-    }
-
-    useEffect(() => {
-        if(scrollStyle){
-            setBgStyle("navbarDiv")
-        }
-        else{
-            setBgStyle("")
-        }
-        
-
-    },[scrollStyle]);
 
     useEffect(() => {
         hamburgerStatus?setNavStyle('toggleActive'):setNavStyle('navSlide');
@@ -64,14 +42,8 @@ export default function Navbar() {
         </div>
     </div>;
 
-    const settingsLink = () => {
-        updateHamburgerStatus();
-        Navigate("Settings");
-    }
-
     const navItems = 
     <div className='navItems'>
-        <div onClick={settingsLink}>Settings</div>
         <div onClick={updateDegree}>{degree}</div>
         <div onClick={updateView}>{view}</div>
     </div>

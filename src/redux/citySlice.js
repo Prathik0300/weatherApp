@@ -11,7 +11,6 @@ const citySlice = createSlice({
                     return item
                 }
             })
-            console.log("action.payload.weather \n",action.payload.temp);
             if(stateVal.length<1){
                 const city = {
                     "city":action.payload.city,

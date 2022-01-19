@@ -1,10 +1,11 @@
 import React,{ useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { WiCloudy,WiDaySunny,WiDayThunderstorm,WiDayRain,WiDaySnow,WiRaindrop,WiBarometer,WiHumidity,WiDirectionDown,WiDirectionLeft,WiDirectionUp,WiDirectionRight,WiDirectionDownLeft,WiDirectionDownRight,WiDirectionUpLeft,WiDirectionUpRight } from "react-icons/wi";
+import { WiRaindrop,WiBarometer,WiHumidity } from "react-icons/wi";
 import '../css/detailedReport.scss';
 import HourlyForecast from './HourlyForecast';
 import DailyForecast from './DailyForecast';
+import { CitySelector } from '../shared/selector';
+import { wDirection,wIcon,wBg } from '../shared/weather';
 
 export default function DetailedReport() {
 
@@ -23,8 +24,7 @@ export default function DetailedReport() {
     const [weatherData,setWeatherData] = useState({
         data:null
     })
-
-    const [loc,setLoc] = useState(useSelector((state) => state.city.filter((item) => (item.lat == lat && item.lng==lng)?item:null)));
+    const loc = CitySelector(lat,lng);
 
     useEffect(async () => { 
         const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&units=metric&appid=c6b019a52568767562b5532a7f55755e`,{
@@ -36,26 +36,13 @@ export default function DetailedReport() {
         }));
     },[]);
 
-    useEffect(() => {
-        console.log(weatherData.data)
-    },[weatherData])
-
     if(weatherData.data===null){
         return "Loading..."
     }
 
-    const windDirection = weatherData.data.current.wind_deg===0?<WiDirectionUp/>:weatherData.data.current.wind_deg>0 && weatherData.data.current.wind_deg<90?<WiDirectionUpRight/>:weatherData.data.current.wind_deg===90?<WiDirectionRight/>:weatherData.data.current.wind_deg>90 && weatherData.data.current.wind_deg<180?<WiDirectionDownRight/>:weatherData.data.current.wind_deg===180?<WiDirectionDown/>:weatherData.data.current.wind_deg>180 && weatherData.data.current.wind_deg<270?<WiDirectionDownLeft/>:weatherData.data.current.wind_deg===270?<WiDirectionLeft/>:<WiDirectionUpLeft/>
-
-    console.log("loc : \n",weatherData,weatherData.data.current.temp);
-
-    const weatherIcon = weatherData.data.current.weather[0].main==="Clear" || weatherData.data.current.weather[0].main.includes("Sun")?<WiDaySunny/>:
-    weatherData.data.current.weather[0].main==="Drizzle" || weatherData.data.current.weather[0].main.includes("Rain")?<WiDayRain/>:
-    weatherData.data.current.weather[0].main.includes("Cloud") || weatherData.data.current.weather[0].main.includes("Mist") || weatherData.data.current.weather[0].main.includes("Haze")?<WiCloudy/>:
-    weatherData.data.current.weather[0].main.includes("Thunder")?<WiDayThunderstorm/>:<WiDaySnow/>;
-
-    const weatherBg = weatherData.data.current.weather[0].main==="Clear" || weatherData.data.current.weather[0].main.includes("Sun")?"sunny":
-    weatherData.data.current.weather[0].main==="Drizzle" || weatherData.data.current.weather[0].main.includes("Rain")?"rainy":
-    weatherData.data.current.weather[0].main.includes("Cloud") || weatherData.data.current.weather[0].main.includes("Mist") ||weatherData.data.current.weather[0].main.includes("Haze")?"cloudy":"snowy";
+    const windDirection = wDirection(weatherData.data.current.wind_deg);
+    const weatherIcon = wIcon(weatherData.data.current.weather[0].main);
+    const weatherBg = wBg(weatherData.data.current.weather[0].main);
 
     const hourly = weatherData.data.hourly.map((item,idx) =>{
         const hour = new Date(Date.now()).getHours();

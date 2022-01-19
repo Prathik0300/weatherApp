@@ -1,11 +1,11 @@
 import React from 'react'
-import { WiCloudy,WiDaySunny,WiDayThunderstorm,WiDayRain,WiDaySnow } from "react-icons/wi";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/dailyForecast.scss";
+import { wIcon } from '../shared/weather';
 
 export default function DailyForecast({minTemp,maxTemp,weather}) {
 
-    const weatherIcon = weather==="Clear" || weather.includes("Sun")?<WiDaySunny/>:weather==="Drizzle" || weather.includes("Rain")?<WiDayRain/>:weather.includes("Cloud")|| weather.includes("Mist") || weather.includes("Haze")?<WiCloudy/>:weather.includes("Thunder")?<WiDayThunderstorm/>:<WiDaySnow/>;
+    const weatherIcon = wIcon(weather);
 
     const render=
     <div className='cardWrapperDaily my-5'>
