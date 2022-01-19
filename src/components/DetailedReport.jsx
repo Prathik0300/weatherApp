@@ -61,7 +61,6 @@ export default function DetailedReport() {
         )
     })
     
-
     const currentExtraData=
     <div className='currentExtraDataWrapper'>
         <div className='currentExtraDataDiv'>

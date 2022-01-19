@@ -39,7 +39,7 @@ export const wIcon = (weather) => {
     else if(weather.includes('Drizzle') || weather.includes("Rain")){
         return <WiDayRain/>
     }
-    else if(weather.includes('Cloud') || weather.includes("Mist") || weather.includes("Haze") || weather.includes("Smoke")){
+    else if(weather.includes('Cloud') || weather.includes("Mist") || weather.includes("Haze") || weather.includes("Smoke") || weather.includes("Fog")){
         return <WiCloudy/>
     }
     else if(weather.includes("Thunder")){
@@ -59,7 +59,7 @@ export const wBg = (weather) => {
     else if(weather.includes('Drizzle') || weather.includes("Rain")){
         return "rainy"
     }
-    else if(weather.includes('Cloud') || weather.includes("Mist") || weather.includes("Haze") || weather.includes("Smoke")){
+    else if(weather.includes('Cloud') || weather.includes("Mist") || weather.includes("Haze") || weather.includes("Smoke") || weather.includes("Fog")){
         return "cloudy"
 
     }
