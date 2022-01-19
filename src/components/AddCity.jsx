@@ -88,8 +88,6 @@ export default function AddCity() {
     }, [city.lat,city.lng])
 
     const updateCity = (item) => {
-
-        console.log("inside!")
         setCity(prevState => ({
             ...prevState,
             "city":item.city,

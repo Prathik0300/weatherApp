@@ -4,28 +4,28 @@ import { WiCloudy,WiDaySunny,WiDayThunderstorm,WiDayRain,WiDaySnow,WiDirectionDo
 export const wDirection = (windDegree) => {
 
     if(windDegree==0){
-        return <WiDirectionUp/>
+        return <WiDirectionUp className="wDirection"/>
     }
     else if(windDegree>0 && windDegree<90){
-        return <WiDirectionUpRight/>
+        return <WiDirectionUpRight className="wDirection"/>
     }
     else if(windDegree==90){
-        return <WiDirectionRight/>
+        return <WiDirectionRight className="wDirection"/>
     }
     else if(windDegree>90 && windDegree<180){
-        return <WiDirectionDownRight/>
+        return <WiDirectionDownRight className="wDirection"/>
     }
     else if(windDegree==180){
-        return <WiDirectionDown/>
+        return <WiDirectionDown className="wDirection"/>
     }
     else if(windDegree>180 && windDegree<270){
-        return <WiDirectionDownLeft/>
+        return <WiDirectionDownLeft className="wDirection"/>
     }
     else if(windDegree==270){
-        return <WiDirectionLeft/>
+        return <WiDirectionLeft className="wDirection"/>
     }
     else{
-        return <WiDirectionUpLeft/>
+        return <WiDirectionUpLeft className="wDirection"/>
     }
 }
 

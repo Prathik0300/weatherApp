@@ -94,29 +94,49 @@
     }
 }
 
-.currentExtraData{
-    @include flex();
-    @include margin(1.5rem,0,2rem,0);
-    @include padding(1rem,0,0,0);
-    flex-direction: row;
+.currentExtraDataWrapper{
+    @include flex;
+    @include resolution(90%,250px);
+    @include padding(0,0,1.2rem,0);
+    @include margin(0,0,20rem,0);
+    position: relative;
+    flex-direction: column;
     justify-content: space-evenly;
-    flex-wrap: wrap;
     align-items: flex-start;
-    float: right;
-    color: white;
-    z-index: 30;
-    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bolder;
+    background-color: rgba($color: #fff, $alpha: 0.4);
+    border-radius: 1rem;
 
-    div{
-        font-size: 2rem;
-        span{
-            font-size: 1.3rem;
+    .currentExtraDataDiv{
+        @include flex;
+        @include resolution(100%,100%);
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+
+        .currentExtraDataDivWrapper{
+            @include flex;
+            @include resolution(100%,100%);
+            @include margin(0,1rem,0,0);
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .wDirection{
+            font-size: 1.5rem;
+        }
+
+        .currentExtraDataHeading{
+            font-size: 0.8rem;
         }
     }
 }
 
 .hourlyHeading{
-    @include margin(0,0,28rem,0);
+    @include margin(0,0,17%,0);
+    position: relative;
 }
 
 .dailyHeading{
@@ -170,12 +190,28 @@
     }
 }
 
-@media(max-width:294px){
+@media(max-width:310px){
     .hourlyHeading{
-        @include margin(0,0,35rem,0);
+        @include margin(0,0,20%,0);
     }
 
     .dailyHeading{
         @include margin(0,0,15%,0);
+    }
+
+    .currentExtraDataWrapper{
+        @include margin(0,0,25rem,0);
+    }
+}
+
+@media(min-width:660px){
+    .currentExtraDataWrapper{
+        @include resolution(50%,250px);
+        // @include padding(0,0,1.2rem,0);
+        @include margin(0,18rem,3rem,0);
+    }
+    
+    .hourlyHeading{
+        @include margin(0,0,10%,0);
     }
 }

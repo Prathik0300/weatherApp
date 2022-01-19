@@ -1,6 +1,5 @@
 import React,{ useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { WiRaindrop,WiBarometer,WiHumidity } from "react-icons/wi";
 import '../css/detailedReport.scss';
 import HourlyForecast from './HourlyForecast';
 import DailyForecast from './DailyForecast';
@@ -25,7 +24,7 @@ export default function DetailedReport() {
         data:null
     })
     const loc = CitySelector(lat,lng);
-
+    console.log(weatherData.data);
     useEffect(async () => { 
         const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&units=metric&appid=c6b019a52568767562b5532a7f55755e`,{
             method:'GET',
@@ -63,6 +62,41 @@ export default function DetailedReport() {
     })
     
 
+    const currentExtraData=
+    <div className='currentExtraDataWrapper'>
+        <div className='currentExtraDataDiv'>
+            <div className='currentExtraDataDivWrapper'>
+                <div className='currentExtraDataHeading'>Real feel</div>
+                <div>{weatherData.data.current.feels_like}{' '}<span>&#8451;</span></div>
+            </div>
+            <div className='currentExtraDataDivWrapper'>
+                <div className='currentExtraDataHeading'>Humidity</div>
+                <div>{weatherData.data.current.humidity}%</div>
+            </div>
+        </div>
+        <div className='currentExtraDataDiv'>
+            <div className='currentExtraDataDivWrapper'>
+                <div className='currentExtraDataHeading'>Wind speed</div>
+                <div>{windDirection}<span>{weatherData.data.current.humidity}Km/h</span></div>
+            </div>
+            <div className='currentExtraDataDivWrapper'>
+                <div className='currentExtraDataHeading'>Pressure</div>
+                <div>{weatherData.data.current.pressure} mbar</div>
+            </div>
+        </div>
+        <div className='currentExtraDataDiv'>
+            <div className='currentExtraDataDivWrapper'>
+                <div className='currentExtraDataHeading'>Dew point</div>
+                <div>{weatherData.data.current.dew_point}{' '}<span>&#8451;</span> Td</div>
+            </div>
+            <div className='currentExtraDataDivWrapper'>
+                <div className='currentExtraDataHeading'>UV index</div>
+                <div>{weatherData.data.current.uvi}</div>
+            </div>
+        </div>
+    </div>
+
+
     const daily = weatherData.data.daily.map((item,idx) => {
         const today = new Date(Date.now());
         const date = new Date(Date.now());
@@ -94,22 +128,9 @@ export default function DetailedReport() {
                 <div className='currentCondition'>{loc[0].weather}</div>
                 <div className='currentLoc'>{loc[0].city}, {loc[0].country}</div>
             </div>
-            <div className='currentExtraData'>
-            <div>
-                <WiRaindrop/><span>{weatherData.data.current.dew_point}</span>
-            </div>
-            <div>
-                <WiBarometer/><span>{weatherData.data.current.pressure} mbar</span>
-            </div>
-            <div>
-                <WiHumidity/><span>{weatherData.data.current.humidity} %</span>
-            </div>
-            <div>
-                {windDirection}<span>{weatherData.data.current.wind_speed} km/h</span>
-            </div>
-        </div>
         </div>
     </div>
+    {currentExtraData}
     <div className='hourlyHeading' style={{color:'#fff',zIndex:'40'}}><b>Hourly Forecast</b></div>
     <div className='forecastReport'>
         {hourly}
