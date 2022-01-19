@@ -32,14 +32,14 @@ export const wDirection = (windDegree) => {
 
 export const wIcon = (weather) => {
 
-    if( weather==="Clear" || weather.includes
+    if( weather.includes('Cleat') || weather.includes
     ("Sun")){
         return <WiDaySunny/>
     } 
-    else if(weather==="Drizzle" || weather.includes("Rain")){
+    else if(weather.includes('Drizzle') || weather.includes("Rain")){
         return <WiDayRain/>
     }
-    else if(weather==='Cloud' || weather.includes("Mist") || weather.includes("Haze") || weather.includes("Smoke")){
+    else if(weather.includes('Cloud') || weather.includes("Mist") || weather.includes("Haze") || weather.includes("Smoke")){
         return <WiCloudy/>
     }
     else if(weather.includes("Thunder")){
@@ -52,14 +52,14 @@ export const wIcon = (weather) => {
 
 export const wBg = (weather) => {
 
-    if( weather==="Clear" || weather.includes
+    if(weather.includes('Clear') || weather.includes
     ("Sun")){
         return "sunny"
     } 
-    else if(weather==="Drizzle" || weather.includes("Rain")){
+    else if(weather.includes('Drizzle') || weather.includes("Rain")){
         return "rainy"
     }
-    else if(weather==='Cloud' || weather.includes("Mist") || weather.includes("Haze") || weather.includes("Smoke")){
+    else if(weather.includes('Cloud') || weather.includes("Mist") || weather.includes("Haze") || weather.includes("Smoke")){
         return "cloudy"
 
     }

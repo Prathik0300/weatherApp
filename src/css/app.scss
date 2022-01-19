@@ -36,6 +36,7 @@
 
 html,body{
     @include clearSky();
+    @include resolution(100%,100%);
     overflow-x: hidden;
 }
 
