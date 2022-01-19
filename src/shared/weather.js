@@ -32,7 +32,7 @@ export const wDirection = (windDegree) => {
 
 export const wIcon = (weather) => {
 
-    if( weather.includes('Cleat') || weather.includes
+    if( weather.includes('Clear') || weather.includes
     ("Sun")){
         return <WiDaySunny/>
     } 
