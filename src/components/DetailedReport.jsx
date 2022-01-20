@@ -50,7 +50,7 @@ export default function DetailedReport() {
                 {
                     idx>=hour? <div key={idx} className='individualDiv'>
                     <div className={`individualCard`}>
-                        <HourlyForecast temperature={item.temp} weather={item.weather[0].main}/>
+                        <HourlyForecast temperature={item.temp} weather={item.weather[0].main} windSpeed={item.wind_speed} windDeg={item.wind_deg}/>
                     </div>
                     <div className='individualTime'>
                         {(idx)%24}:00 <span>{(idx)%24>=12? "PM" : "AM"}</span>

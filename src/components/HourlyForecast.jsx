@@ -10,7 +10,9 @@ export default function HourlyForecast({temperature,weather}) {
     <div className='cardWrapperHourly my-5'>
         <div className='cardDivHourly'>
             <div className='cardIconHourly'>{weatherIcon}</div>
-            <div className='cardTempHourly'>{Math.round(temperature)}<span>&#8451;</span></div>
+            <div className='cardTempHourly'>
+                {Math.round(temperature)}<span>&#8451;</span>
+            </div>
         </div>
     </div>
     

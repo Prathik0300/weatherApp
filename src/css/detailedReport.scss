@@ -13,6 +13,30 @@
     }
 }
 
+.fog{
+    @include resolution(100%,100%);
+    background-image: url("../assets/weatherAppImg/fog.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .weatherIcon{
+        font-size: 6rem;
+        color: grey;
+    }
+}
+
+.winter{
+    @include resolution(100%,100%);
+    background-image: url("../assets/weatherAppImg/winter.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .weatherIcon{
+        font-size: 6rem;
+        color: #fff;
+    }
+}
+
 .rainy{
     @include resolution(100%,100%);
     background-image: url("../assets/weatherAppImg/rainy.jpg");
@@ -146,13 +170,13 @@
 .forecastReport{
     @include flex;
     @include resolution(90%,100%);
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    z-index: 40 !important;
-    overflow-x: scroll !important;
+    flex-direction: row ;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 40;
+    overflow-x: scroll;
     overflow-y: hidden;
-    color: white !important;
+    color: white;
     scrollbar-width: none;
 }
 
@@ -207,7 +231,6 @@
 @media(min-width:660px){
     .currentExtraDataWrapper{
         @include resolution(50%,250px);
-        // @include padding(0,0,1.2rem,0);
         @include margin(0,18rem,3rem,0);
     }
     

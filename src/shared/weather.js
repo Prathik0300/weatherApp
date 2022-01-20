@@ -59,9 +59,15 @@ export const wBg = (weather) => {
     else if(weather.includes('Drizzle') || weather.includes("Rain")){
         return "rainy"
     }
-    else if(weather.includes('Cloud') || weather.includes("Mist") || weather.includes("Haze") || weather.includes("Smoke") || weather.includes("Fog")){
+    else if(weather.includes('Cloud') || weather.includes("Haze") || weather.includes("Smoke")){
         return "cloudy"
 
+    }
+    else if(weather.includes("Mist") || weather.includes("Fog")){
+        return "fog"
+    }
+    else if(weather.includes("Cold") || weather.includes("Winter")){
+        return "winter"
     }
     else{
         return "snowy"
