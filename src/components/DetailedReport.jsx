@@ -35,13 +35,29 @@ export default function DetailedReport() {
             data:data
         }));
 
-        setIsLoading(false);
+        const time = setTimeout(() => {
+            setIsLoading(false);
+        },3000);
+        
+        return(() => clearTimeout(time));
     },[]);
 
-    if(weatherData.data===null && isLoading===true){
+
+    // const updateLoading = () => {
+    //     console.log("onload");
+    //     setTimeout(() => {
+    //         setIsLoading(false);
+    //     },5000);
+    // }
+
+
+
+    if(isLoading===true || weatherData.data===null){
+        console.log("return : ",isLoading)
         return <Loader/>
     }
 
+   
     const windDirection = wDirection(weatherData.data.current.wind_deg);
     const weatherIcon = wIcon(weatherData.data.current.weather[0].main);
     const weatherBg = wBg(weatherData.data.current.weather[0].main);
@@ -119,7 +135,7 @@ export default function DetailedReport() {
     })
 
     const wReport = 
-    <div className={`${weatherBg} dataWrapper`}>
+    <div className={`${weatherBg} dataWrapper`} >
     <div className={`container-fluid currentData`}>
         <div className='currentWeatherWrapper'>
             <div className='currentWeather'>
@@ -144,7 +160,7 @@ export default function DetailedReport() {
     </div>
 
     return (
-        <div>
+        <div /*onLoad={updateLoading}*/>
             {wReport}
         </div>
     )

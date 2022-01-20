@@ -66,8 +66,8 @@
         position: fixed;
         z-index: 20;
         cursor: pointer;
-    // @include visibleFunctionalDiv("yes");
 }
+
 .hamburgerWrapper{
     @include flex;
     @include resolution(30px,30px);
