@@ -40,6 +40,10 @@ html,body{
     overflow-x: hidden;
 }
 
+.containerWrapper{
+    @include resolution(100%,100%);
+}
+
 *{
     margin: 0;
     padding: 0;

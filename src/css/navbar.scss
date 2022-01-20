@@ -50,6 +50,14 @@
     }
 }
 
+.wrapper{
+    @include resolution(100%,100%);
+}
+
+.indCityDetail{
+    @include resolution(100%,100%);
+}
+
 .functionalDiv{
     @include flex;
         @include resolution(40px,40px);

@@ -4,8 +4,6 @@
 .loader{
     @include flex;
     @include resolution(100%,100vh);
-
-    img{
-        @include resolution(50px,50px);
-    }
+    
 }
+

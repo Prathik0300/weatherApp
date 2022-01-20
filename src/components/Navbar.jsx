@@ -8,7 +8,7 @@ import { AllCitySelector } from '../shared/selector';
 
 export default function Navbar() {
     const Navigate = useNavigate();
-    const [degree,setDegree] = useState('Celsius');
+    const [degree,setDegree] = useState('Farenheit');
     const [view,setView] = useState('Grid');
     const [hamburgerStatus,setHamburgerStatus] = useState(false);
     const [navStyle,setNavStyle] = useState('');
@@ -64,7 +64,7 @@ export default function Navbar() {
         let render;
         if(view==='Grid'){
             render =
-            <div className='container-fluid' key={idx}>
+            <div className='container-fluid indCityDetail' key={idx}>
             <div className='row'>
                 <div className='mb-2'>
                     <CityWeather city={item.city} country={item.country} degree={degree} temp={item.temp} view={view} weather={item.weather} lat={item.lat} lng={item.lng}/>
@@ -86,7 +86,7 @@ export default function Navbar() {
     })
 
     return (
-        <div>
+        <div className='wrapper'>
             <div className={`${bgStyle}`}>
             {hamburgerIcon}
             {navbarPane}

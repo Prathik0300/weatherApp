@@ -18,6 +18,7 @@ export default function DetailedReport() {
         5:"Friday",
         6:"Saturday"
     }
+    const [isLoading,setIsLoading] = useState(true);
 
     const { lat,lng } = useParams();
     let data;
@@ -33,9 +34,11 @@ export default function DetailedReport() {
         setWeatherData(prevState => ({
             data:data
         }));
+
+        setIsLoading(false);
     },[]);
 
-    if(weatherData.data===null /*|| weatherData.data!==null*/ ){
+    if(weatherData.data===null && isLoading===true){
         return <Loader/>
     }
 

@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect,useRef,useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/addCity.scss";
 import { Typography } from 'antd';
@@ -12,6 +12,7 @@ const { Title } = Typography;
 
 export default function AddCity() {
 
+    const inputRef = useRef();
     const dispatch = useDispatch();
     const Navigate = useNavigate();
     const [query,setQuery] = useState("");
@@ -24,6 +25,10 @@ export default function AddCity() {
         "temp":null,
         "weather":null
     })
+
+    useEffect(() => {
+        inputRef.current.focus();
+    },[]);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
@@ -60,7 +65,7 @@ export default function AddCity() {
     <div className='container-fluid mb-5'>
         <div className='row col-12'>
             <div className='col-12 searchBar'>
-                <input type="text" placeholder='Enter the city name...' value={query} onChange={e => setQuery(e.target.value)}/>
+                <input ref={inputRef} type="text" placeholder='Enter the city name...' value={query} onChange={e => setQuery(e.target.value)}/>
             </div>
         </div>
     </div>

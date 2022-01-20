@@ -38,11 +38,12 @@
 .resultCityDiv{
     cursor: pointer;
     transition: ease-in-out 0.3s;
-
+    border-radius: 1rem;
     &:hover{
         background-color: white;
         color: black;
         font-weight: bolder;
+        
     }
 }
 
