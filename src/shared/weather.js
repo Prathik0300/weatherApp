@@ -1,5 +1,6 @@
-import { WiCloudy,WiDaySunny,WiDayThunderstorm,WiDayRain,WiDaySnow,WiDirectionDown,WiDirectionLeft,WiDirectionUp,WiDirectionRight,WiDirectionDownLeft,WiDirectionDownRight,WiDirectionUpLeft,WiDirectionUpRight,WiFog } from "react-icons/wi";
+import { WiCloudy,WiDaySunny,WiDayThunderstorm,WiDayRain,WiDaySnow,WiDirectionDown,WiDirectionLeft,WiDirectionUp,WiDirectionRight,WiDirectionDownLeft,WiDirectionDownRight,WiDirectionUpLeft,WiDirectionUpRight,WiFog,WiNightClear,WiNightFog,WiNightAltRain,WiNightAltThunderstorm,WiNightCloudy,WiNightSnow } from "react-icons/wi";
 
+const dt = new Date(Date.now()).getHours();
 
 export const wDirection = (windDegree) => {
 
@@ -34,22 +35,56 @@ export const wIcon = (weather) => {
 
     if( weather.includes('Clear') || weather.includes
     ("Sun")){
-        return <WiDaySunny/>
+        if(dt>=6 && dt<=18){
+            return <WiDaySunny/>
+        }
+        else{
+            return <WiNightClear/>
+        }
+        
     } 
     else if(weather.includes('Drizzle') || weather.includes("Rain")){
-        return <WiDayRain/>
+        if(dt>=6 && dt<=18){
+            return <WiDayRain/>
+        }
+        else{
+            return <WiNightAltRain/>
+        }
+        
     }
     else if(weather.includes('Cloud') || weather.includes("Haze") || weather.includes("Smoke")){
-        return <WiCloudy/>
+        if(dt>=6 && dt<=18){
+            return <WiCloudy/>
+        }
+        else{
+            return <WiNightCloudy/>
+        }     
     }
     else if(weather.includes("Fog") || weather.includes("Mist")){
-        return <WiFog/>
+        if(dt>=6 && dt<=18){
+            return <WiFog/>
+        }
+        else{
+            return <WiNightFog/>
+        }
+        
     }
     else if(weather.includes("Thunder")){
-        return <WiDayThunderstorm/>
+        if(dt>=6 && dt<=18){
+            return <WiDayThunderstorm/>
+        }
+        else{
+            return <WiNightAltThunderstorm/>
+        }
+        
     }
     else{
-        return <WiDaySnow/>
+        if(dt>=6 && dt<=18){
+            return <WiDaySnow/>
+        }
+        else{
+            return <WiNightSnow/>
+        } 
     }
 }
 
@@ -57,7 +92,12 @@ export const wBg = (weather) => {
 
     if(weather.includes('Clear') || weather.includes
     ("Sun")){
-        return "sunny"
+        if(dt>=6 && dt<=18){
+            return "sunny"
+        }
+        else{
+            return "nightClear"
+        }  
     } 
     else if(weather.includes('Drizzle') || weather.includes("Rain")){
         return "rainy"
@@ -78,25 +118,59 @@ export const wBg = (weather) => {
 }
 
 
-export const wForecastIcons = (weather) => {
-
+export const wForecastIcons = (weather,hour=dt) => {
+    
     if( weather.includes('Clear') || weather.includes
     ("Sun")){
-        return <WiDaySunny className="sunnyF"/>
+        if((hour)%24>=6 && (hour)%24<=18){
+            return <WiDaySunny className="sunnyF"/>
+        }
+        else{
+            return <WiNightClear className="sunnyF"/>
+        }
+        
     } 
     else if(weather.includes('Drizzle') || weather.includes("Rain")){
-        return <WiDayRain className="rainyF"/>
+        if((hour)%24>=6 && (hour)%24<=18){
+            return <WiDayRain className="rainyF"/>
+        }
+        else{
+            return <WiNightAltRain className="rainyF"/>
+        }
+        
     }
     else if(weather.includes('Cloud') || weather.includes("Haze") || weather.includes("Smoke")){
-        return <WiCloudy className="cloudyF"/>
+        if((hour)%24>=6 && (hour)%24<=18){
+            return <WiCloudy className="cloudyF"/>
+        }
+        else{
+            return <WiNightCloudy className="cloudyF"/>
+        }     
     }
     else if(weather.includes("Fog") || weather.includes("Mist")){
-        return <WiFog className="fogF"/>
+        if((hour)%24>=6 && (hour)%24<=18){
+            return <WiFog className="fogF"/>
+        }
+        else{
+            return <WiNightFog className="fogF"/>
+        }
+        
     }
     else if(weather.includes("Thunder")){
-        return <WiDayThunderstorm className="thunderF"/>
+        if((hour)%24>=6 && (hour)%24<=18){
+            return <WiDayThunderstorm className="thunderF"/>
+        }
+        else{
+            return <WiNightAltThunderstorm className="thunderF"/>
+        }
+        
     }
     else{
-        return <WiDaySnow className="snowyF"/>
+        if((hour)%24>=6 && (hour)%24<=18){
+            return <WiDaySnow className="snowyF"/>
+        }
+        else{
+            return <WiNightSnow className="snowyF"/>
+        } 
     }
 }

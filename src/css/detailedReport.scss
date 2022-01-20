@@ -73,6 +73,17 @@
     }
 }
 
+.nightClear{
+    @include resolution(100%,100%);
+    background-image: url("../assets/weatherAppImg/coldNight.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .weatherIcon{
+        font-size: 6rem;
+        color: white;
+    }
+}
 
 .dataWrapper{
     @include flex;
