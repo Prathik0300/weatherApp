@@ -1,4 +1,4 @@
-import { WiCloudy,WiDaySunny,WiDayThunderstorm,WiDayRain,WiDaySnow,WiDirectionDown,WiDirectionLeft,WiDirectionUp,WiDirectionRight,WiDirectionDownLeft,WiDirectionDownRight,WiDirectionUpLeft,WiDirectionUpRight } from "react-icons/wi";
+import { WiCloudy,WiDaySunny,WiDayThunderstorm,WiDayRain,WiDaySnow,WiDirectionDown,WiDirectionLeft,WiDirectionUp,WiDirectionRight,WiDirectionDownLeft,WiDirectionDownRight,WiDirectionUpLeft,WiDirectionUpRight,WiFog } from "react-icons/wi";
 
 
 export const wDirection = (windDegree) => {
@@ -39,8 +39,11 @@ export const wIcon = (weather) => {
     else if(weather.includes('Drizzle') || weather.includes("Rain")){
         return <WiDayRain/>
     }
-    else if(weather.includes('Cloud') || weather.includes("Mist") || weather.includes("Haze") || weather.includes("Smoke") || weather.includes("Fog")){
+    else if(weather.includes('Cloud') || weather.includes("Haze") || weather.includes("Smoke")){
         return <WiCloudy/>
+    }
+    else if(weather.includes("Fog") || weather.includes("Mist")){
+        return <WiFog/>
     }
     else if(weather.includes("Thunder")){
         return <WiDayThunderstorm/>
@@ -71,5 +74,29 @@ export const wBg = (weather) => {
     }
     else{
         return "snowy"
+    }
+}
+
+
+export const wForecastIcons = (weather) => {
+
+    if( weather.includes('Clear') || weather.includes
+    ("Sun")){
+        return <WiDaySunny className="sunnyF"/>
+    } 
+    else if(weather.includes('Drizzle') || weather.includes("Rain")){
+        return <WiDayRain className="rainyF"/>
+    }
+    else if(weather.includes('Cloud') || weather.includes("Haze") || weather.includes("Smoke")){
+        return <WiCloudy className="cloudyF"/>
+    }
+    else if(weather.includes("Fog") || weather.includes("Mist")){
+        return <WiFog className="fogF"/>
+    }
+    else if(weather.includes("Thunder")){
+        return <WiDayThunderstorm className="thunderF"/>
+    }
+    else{
+        return <WiDaySnow className="snowyF"/>
     }
 }

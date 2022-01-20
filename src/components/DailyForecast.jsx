@@ -1,11 +1,11 @@
 import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/dailyForecast.scss";
-import { wIcon } from '../shared/weather';
+import { wForecastIcons } from '../shared/weather';
 
 export default function DailyForecast({minTemp,maxTemp,weather}) {
 
-    const weatherIcon = wIcon(weather);
+    const weatherIcon = wForecastIcons(weather);
 
     const render=
     <div className='cardWrapperDaily my-5'>

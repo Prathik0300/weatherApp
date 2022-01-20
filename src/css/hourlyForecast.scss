@@ -1,6 +1,39 @@
 @import 'navbar';
 @import 'app';
 
+@mixin wForecastIconColor(){
+    .sunnyF{
+        color: goldenrod;
+    }
+    
+    .fogF{
+        color: grey;
+    }
+    
+    .winterF{
+        color: #fff;
+    }
+    
+    .rainyF{
+
+        color: grey;
+    }
+    
+    .cloudyF{
+
+        color: darkgray;
+    }
+    
+    .snowyF{
+
+        color: white;
+    }
+    .thunderF{
+        font-size: 6rem;
+        color: darkgrey;
+    }
+}
+
 .cardWrapperHourly{
     @include flex;
     @include resolution(140px,140px);
@@ -22,6 +55,8 @@
             font-size: 4.5rem;
             position: absolute;
             top: -1rem;
+            @include wForecastIconColor();
+            
         }
 
         .cardTempHourly{

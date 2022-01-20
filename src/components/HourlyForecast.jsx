@@ -1,11 +1,18 @@
 import React from 'react'
-import { wIcon } from '../shared/weather';
+import { wForecastIcons } from '../shared/weather';
 import "../css/hourlyForecast.scss"
 
 export default function HourlyForecast({temperature,weather}) {
 
-    const weatherIcon = wIcon(weather);
-
+    const weatherIcon = wForecastIcons(weather);
+// className={
+//     className="sunny"
+// className="rainy"
+// className="cloudy"
+// className="fog"
+// className="thunder"
+// className="snowy"
+// }
     const render = 
     <div className='cardWrapperHourly my-5'>
         <div className='cardDivHourly'>

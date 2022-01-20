@@ -5,6 +5,7 @@ import HourlyForecast from './HourlyForecast';
 import DailyForecast from './DailyForecast';
 import { CitySelector } from '../shared/selector';
 import { wDirection,wIcon,wBg } from '../shared/weather';
+import Loader from './Loader';
 
 export default function DetailedReport() {
 
@@ -24,7 +25,6 @@ export default function DetailedReport() {
         data:null
     })
     const loc = CitySelector(lat,lng);
-    console.log(weatherData.data);
     useEffect(async () => { 
         const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&units=metric&appid=c6b019a52568767562b5532a7f55755e`,{
             method:'GET',
@@ -35,8 +35,8 @@ export default function DetailedReport() {
         }));
     },[]);
 
-    if(weatherData.data===null){
-        return "Loading..."
+    if(weatherData.data===null /*|| weatherData.data!==null*/ ){
+        return <Loader/>
     }
 
     const windDirection = wDirection(weatherData.data.current.wind_deg);
@@ -50,7 +50,7 @@ export default function DetailedReport() {
                 {
                     idx>=hour? <div key={idx} className='individualDiv'>
                     <div className={`individualCard`}>
-                        <HourlyForecast temperature={item.temp} weather={item.weather[0].main} windSpeed={item.wind_speed} windDeg={item.wind_deg}/>
+                        <HourlyForecast temperature={item.temp} weather={item.weather[0].main}/>
                     </div>
                     <div className='individualTime'>
                         {(idx)%24}:00 <span>{(idx)%24>=12? "PM" : "AM"}</span>

@@ -1,5 +1,6 @@
 @import 'app';
 @import 'navbar';
+@import "hourlyForecast";
 
 .cardWrapperDaily{
     @include flex;
@@ -23,6 +24,7 @@
             font-size: 4rem;
             position: absolute;
             top: -1.3rem;
+            @include wForecastIconColor();
         }
 
         .cardTempDaily{
