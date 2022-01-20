@@ -92,8 +92,11 @@ export const wBg = (weather) => {
 
     if(weather.includes('Clear') || weather.includes
     ("Sun")){
-        if(dt>=6 && dt<=18){
+        if(dt>=6 && dt<=16){
             return "sunny"
+        }
+        else if(dt>=17 && dt<=18){
+            return "evening"
         }
         else{
             return "nightClear"

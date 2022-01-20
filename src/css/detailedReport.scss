@@ -75,7 +75,7 @@
 
 .nightClear{
     @include resolution(100%,100%);
-    background-image: url("../assets/weatherAppImg/coldNight.jpg");
+    background-image: url("../assets/weatherAppImg/night.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     transition: ease-in-out 0.5s;
@@ -84,6 +84,20 @@
         color: goldenrod;
     }
 }
+
+
+.evening{
+    @include resolution(100%,100%);
+    background-image: url("../assets/weatherAppImg/evening.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: ease-in-out 0.5s;
+    .weatherIcon{
+        font-size: 6rem;
+        color: goldenrod;
+    }
+}
+
 
 .dataWrapper{
     @include flex;
