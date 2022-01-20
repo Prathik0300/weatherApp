@@ -3,7 +3,7 @@ import "../css/icon.scss";
 
 export default function ThunderIcon({width,height}) {
   return(
-    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width={width} height={height} viewbox="0 0 64 64">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width={width} height={height} viewBox="0 0 64 64">
     <g id="thunder">
         <g transform="translate(20,10)">
             <g className="am-weather-cloud-1">

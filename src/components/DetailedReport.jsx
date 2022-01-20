@@ -44,7 +44,6 @@ export default function DetailedReport() {
 
 
     if(isLoading===true || weatherData.data===null){
-        console.log("return : ",isLoading)
         return <Loader/>
     }
 
@@ -151,7 +150,7 @@ export default function DetailedReport() {
     </div>
 
     return (
-        <div /*onLoad={updateLoading}*/>
+        <div>
             {wReport}
         </div>
     )

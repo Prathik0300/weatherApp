@@ -6,7 +6,7 @@
     background-image: url("../assets/weatherAppImg/sunny.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
+    transition: ease-in-out 0.5s;
     .weatherIcon{
         font-size: 6rem;
         color: goldenrod;
@@ -18,7 +18,7 @@
     background-image: url("../assets/weatherAppImg/fog.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
+    transition: ease-in-out 0.5s;
     .weatherIcon{
         font-size: 6rem;
         color: grey;
@@ -30,7 +30,7 @@
     background-image: url("../assets/weatherAppImg/winter.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
+    transition: ease-in-out 0.5s;
     .weatherIcon{
         font-size: 6rem;
         color: #fff;
@@ -42,7 +42,7 @@
     background-image: url("../assets/weatherAppImg/rainy.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
+    transition: ease-in-out 0.5s;
     .weatherIcon{
         font-size: 6rem;
         color: grey;
@@ -54,7 +54,7 @@
     background-image: url("../assets/weatherAppImg/cloudy.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    
+    transition: ease-in-out 0.5s;
     .weatherIcon{
         font-size: 8rem;
         color: darkgray;
@@ -66,7 +66,7 @@
     background-image: url("../assets/weatherAppImg/snowy.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
+    transition: ease-in-out 0.5s;
     .weatherIcon{
         font-size: 6rem;
         color: white;
@@ -78,10 +78,10 @@
     background-image: url("../assets/weatherAppImg/coldNight.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
+    transition: ease-in-out 0.5s;
     .weatherIcon{
         font-size: 6rem;
-        color: white;
+        color: goldenrod;
     }
 }
 
@@ -188,7 +188,7 @@
     overflow-x: scroll;
     overflow-y: hidden;
     color: white;
-    scrollbar-width: none;
+    scrollbar-width: none !important;
 }
 
 .forecastReport::-webkit-scrollbar {

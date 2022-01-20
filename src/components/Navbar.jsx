@@ -5,6 +5,7 @@ import AddCityIcon from './AddCityIcon';
 import Logo from './Logo';
 import CityWeather from './CityWeather';
 import { AllCitySelector } from '../shared/selector';
+import Loader from './Loader';
 
 export default function Navbar() {
     const Navigate = useNavigate();
@@ -14,6 +15,7 @@ export default function Navbar() {
     const [navStyle,setNavStyle] = useState('');
     const cities = AllCitySelector();
     const [bgStyle,setBgStyle] = useState("");
+    const [isLoading,setIsLoading] = useState(true);
 
     useEffect(() => {
         hamburgerStatus?setNavStyle('toggleActive'):setNavStyle('navSlide');
@@ -21,7 +23,12 @@ export default function Navbar() {
 
     useEffect(() => {
         setNavStyle('');
+        setIsLoading(false);
     },[]);
+
+    if(isLoading===true){
+        return <Loader/>
+    }
 
     const updateHamburgerStatus = () => {
         setHamburgerStatus(prevStatus => !prevStatus);

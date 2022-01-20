@@ -2,7 +2,7 @@ import React from 'react';
 import "../css/icon.scss";
 
 export default function SunIcon({width,height}) {
-  return <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width={width} height={height} viewbox="0 0 64 64">
+  return <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width={width} height={height} viewBox="0 0 64 64">
   <g id="day">
       <g transform="translate(32,32)">
           <g className="am-weather-sun am-weather-sun-shiny am-weather-easing-ease-in-out">
