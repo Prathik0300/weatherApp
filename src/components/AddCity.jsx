@@ -7,6 +7,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import { cities } from '../cities';
 import { Actions } from '../shared/actions';
 import { useDispatch } from 'react-redux';
+import Loader from './Loader';
 
 const { Title } = Typography;
 
@@ -25,6 +26,7 @@ export default function AddCity() {
         "temp":null,
         "weather":null
     })
+    const [isLoading,setIsLoading] = useState(false);
 
     useEffect(() => {
         inputRef.current.focus();
@@ -82,7 +84,7 @@ export default function AddCity() {
             "weather":data.current.weather[0].main
         }));
         }
-        
+        setIsLoading(false);
         return (() => {
             setCity(prevState => ({
                 ...prevState,
@@ -92,6 +94,10 @@ export default function AddCity() {
         })
     }, [city.lat,city.lng])
 
+    if(isLoading===true){
+        return <Loader/>
+    }
+
     const updateCity = (item) => {
         setCity(prevState => ({
             ...prevState,
@@ -100,7 +106,9 @@ export default function AddCity() {
             "lat":item.lat,
             "lng":item.lng,
         }))
+        setIsLoading(true);
     }
+
 
     const cityResults = cities.filter((item) =>{
         if(searchCity!==null && searchCity!==""){

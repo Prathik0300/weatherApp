@@ -12,7 +12,7 @@ export default function Container() {
         if(window.location.pathname === "/"){
             Navigate("weatherApp")
         }
-    },[])
+    })
 
     return (
         <div className='containerWrapper'>

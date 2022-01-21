@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import '../css/logo.scss';
 import { WiDayStormShowers } from "react-icons/wi";
-
+import { useNavigate } from 'react-router';
 
 export default function Logo() {
 
+    const Navigate = useNavigate();
     const [screenWidth,setScreenWidth] = useState(null);
     const [nameStyle,setNameStyle] = useState("");
 
@@ -22,7 +23,7 @@ export default function Logo() {
     });
 
     const logo = 
-    <div className='logoDiv'>
+    <div className='logoDiv' onClick={() => Navigate("/")}>
         <div className={`logoIcon ${screenWidth>450?"":"alignLogoIcon"}`}>
             <WiDayStormShowers/>
         </div>
